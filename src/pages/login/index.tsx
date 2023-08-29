@@ -29,6 +29,9 @@ export default function Login() {
                 username: username,
                 password: password,
             })
+
+            const test = await api.get('/test')
+            console.log(test)
            
             if(res.status === 200) {
                 setUserInfo({username})
