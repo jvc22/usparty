@@ -37,6 +37,7 @@ export default function Login() {
         } catch(err) {
             if(err instanceof AxiosError && err?.response?.data?.message) {
                 setError(err.response.data.message)
+                console.log(err.response.data)
                 return
             }
             console.error(err)
