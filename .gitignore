@@ -1,0 +1,23 @@
+node_modules
+# Keep environment variables out of version control
+.env
+.env*.local
+/.next/
+/out/
+/build
+.DS_Store
+*.pem
+
+.vercel
+*.tsbuildiinfo
+next-env.d.tsbuildiinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+/node_modules
+/.pnp
+.pnp.js
+
+/coverage
