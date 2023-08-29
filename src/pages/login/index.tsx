@@ -28,6 +28,10 @@ export default function Login() {
             const res = await api.post('/login', {
                 username: username,
                 password: password,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
            
             if(res.status === 200) {
