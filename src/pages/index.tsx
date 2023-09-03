@@ -1,6 +1,6 @@
 import { Box, Button, TextInput } from "@ignite-ui/react";
 import { ArrowRight, List, X } from "phosphor-react";
-import img from '../assets/connect.svg';
+import img from '../assets/event.svg';
 import Image from "next/image";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -90,9 +90,12 @@ export default function ClaimUsername() {
           </div> 
           
         </div>
-        <p className="text-[#A9A9B2] text-xl text-center md:mt-3">Encontre os principais eventos da USP Ribeirão!</p>
 
-        <p className="text-gray-100 text-4xl font-poppins font-bold mt-8">Registre-se</p>
+        <div className="Img md:hidden flex flex-col items-center pointer-events-none">
+            <Image src={img} height={200} quality={80} priority alt=""/>
+        </div>  
+
+        <h2 className="text-gray-100 text-4xl font-bold font-poppins leading-[140%] mt-5">Registre-se</h2>
 
         <Box as='form' className="flex flex-col gap-2 max-md:gap-4 md:flex-row mt-5" onSubmit={handleSubmit(handleClaimUsername)}>
           <TextInput size='sm' prefix="usparty.com.br/" placeholder="seu-usuario" {...register('username')} className="lowercase"/>
