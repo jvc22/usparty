@@ -98,7 +98,7 @@ export default function ClaimUsername() {
         <h2 className="text-gray-100 text-4xl font-bold font-poppins leading-[140%] mt-5">Registre-se</h2>
 
         <Box as='form' className="flex flex-col gap-2 max-md:gap-4 md:flex-row mt-5" onSubmit={handleSubmit(handleClaimUsername)}>
-          <TextInput size='sm' prefix="usparty.com.br/" placeholder="seu-usuario" {...register('username')} className="lowercase"/>
+          <TextInput size='sm' prefix="usparty.netlify.app/" placeholder="seu-usuario" {...register('username')} className="lowercase"/>
           <Button size='sm' type="submit" disabled={isSubmitting}>
             Reservar
             <ArrowRight />
