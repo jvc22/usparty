@@ -53,11 +53,11 @@ export default function Home() {
     return (
         <div className="md:max-w-[800px] w-[100vw] mx-auto p-8 flex flex-col justify-center">
             <div className="w-full text-gray-100 font-bold text-2xl flex items-center justify-between mb-4">
-                <p className="md:hover:scale-110 md:hover:text-violet-500 duration-200 max-md:focus:text-violet-500 font-poppins">USParty</p>
+                <p className="md:hover:scale-110 md:hover:text-[#00B37E] duration-200 font-poppins">USParty</p>
                 <div className="font-normal text-base flex items-center gap-3">
-                    <p>Olá, <span className="text-violet-400 font-bold">{userInfo.username}</span></p>
+                    <p>Olá, <span className="text-[#00B37E] font-bold">{userInfo.username}</span></p>
                     <button className="md:hidden" onClick={handleLogout}>
-                        <SignOut className="text-2xl text-violet-400" />
+                        <SignOut className="text-2xl text-[#2fd898]" />
                     </button>
                     <div className="max-md:hidden">
                         <Button size={"sm"} onClick={() => {router.push('/post-form')}}>

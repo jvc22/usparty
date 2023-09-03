@@ -52,8 +52,6 @@ export default function Login() {
                 </button>
 
                 <div className="mt-8 flex flex-col gap-4">
-                    <SidebarItem title="Sobre" url=""/>
-                    <SidebarItem title="Informações de contato" url=""/>
                     <SidebarItem title="Criar uma conta" url="register/user-info"/>
                 </div>
             </div>
@@ -63,13 +61,18 @@ export default function Login() {
             
             <div className="w-full text-gray-100 font-bold font-poppins text-2xl flex items-center justify-between">
                 <div className="flex gap-8 items-center">
-                    <Link href='/' className="cursor-pointer md:hover:scale-110 md:hover:text-violet-500 duration-200">USParty</Link>
+                <Link href='/' className="cursor-pointer md:hover:scale-110 md:hover:text-[#00B37E] duration-200">USParty</Link>
                     <div className="flex gap-8 max-md:hidden">
-                        <Link className="hover:text-violet-400 hover:duration-200 font-normal text-base" href=''>Sobre</Link>
-                        <Link className="hover:text-violet-400 hover:duration-200 font-normal text-base" href=''>Informações de contato</Link>
+                        <Link className="hover:text-[#2fd898] hover:duration-200 font-normal text-base" href=''>Sobre</Link>
+                        <Link className="hover:text-[#2fd898] hover:duration-200 font-normal text-base" href=''>Informações de contato</Link>
                     </div>
                 </div>
-                <Link className="font-normal text-base max-md:hidden border-2 border-violet-500 rounded-md px-2 py-1 hover:bg-violet-500 text-violet-500 hover:text-white hover:duration-200" href='/register/user-info'>Criar uma conta</Link>
+                <div className="font-normal text-base flex items-center gap-8 max-md:hidden">
+                    <Link className="hover:text-[#2fd898] hover:duration-200" href='/login'>Login</Link>
+                    <Button size={"sm"} variant={"secondary"} onClick={() => {router.push('/register/user-info')}}>
+                        <span className="font-poppins">Criar uma conta</span>
+                    </Button>
+                </div>
                 <button className="md:hidden" onClick={() => {setOpenMenu(true)}}>
                     <List />
                 </button>
@@ -104,7 +107,7 @@ export default function Login() {
                 </Box>
 
                 <p className="mt-4 text-gray-100">
-                    Não possui uma conta? <Link href={'/register/user-info'} className="font-bold text-violet-500 hover:text-violet-300 hover:duration-200">Cadastre-se</Link>!
+                    Não possui uma conta? <Link href={'/register/user-info'} className="font-bold text-[#00B37E] hover:text-[#2fd898] hover:duration-100">Cadastre-se</Link>!
                 </p>
             </div>
 

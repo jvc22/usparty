@@ -39,7 +39,7 @@ export default function Post(props: PostProps) {
             <Box>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <span className="text-violet-300 font-bold">@{props.author}</span>
+                        <span className="text-[#00B37E] font-bold">@{props.author}</span>
                         <span className="text-[#7C7C8A] text-sm">{props.about.length > 13 ? `${props.about.slice(0, 13)}...` : props.about}</span>
                     </div>
                     <span className="text-[#7C7C8A] text-xs">{formattedDate}</span>
@@ -69,7 +69,7 @@ export default function Post(props: PostProps) {
                 </div>
 
                {props.link && (
-                    <div className="flex items-center gap-1 text-violet-300">
+                    <div className="flex items-center gap-1 text-[#6aebb6]">
                         <Link />
                         <a href={`https://${props.link}`} target="_blank" rel="noopener noreferrer">
                             Link
