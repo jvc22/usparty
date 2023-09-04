@@ -69,7 +69,7 @@ export default function Post(props: PostProps) {
                 </div>
 
                {props.link && (
-                    <div className="flex items-center gap-1 text-[#6aebb6]">
+                    <div className="flex items-center gap-1 text-[#6aebb6] mt-3">
                         <Link />
                         <a href={`https://${props.link}`} target="_blank" rel="noopener noreferrer">
                             Link
