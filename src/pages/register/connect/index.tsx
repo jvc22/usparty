@@ -1,9 +1,7 @@
 import { Box, Button, MultiStep } from "@ignite-ui/react";
 import Head from "next/head";
 import { ArrowRight, Check } from "phosphor-react";
-import { FcGoogle } from "react-icons/fc";
 import { BsInstagram } from 'react-icons/bs'
-import { useSession } from "next-auth/react";
 
 export default function Connect() {
     const isSignedIn = false
