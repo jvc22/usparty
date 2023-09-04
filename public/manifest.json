@@ -5,7 +5,7 @@
     "background_color": "#121214",
     "display": "standalone",
     "orientation": "portrait",
-    "start_url": "https://usparty.netlify.app/home",
+    "start_url": "https://usparty.netlify.app/",
     "scope": "/",
     "icons": [
         {
