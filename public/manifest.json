@@ -1,0 +1,32 @@
+{
+    "name": "USParty",
+    "short_name": "USParty",
+    "theme_color": "#121214",
+    "background_color": "#121214",
+    "display": "standalone",
+    "orientation": "portrait",
+    "start_url": "https://usparty.netlify.app/home",
+    "scope": "/",
+    "icons": [
+        {
+           "src": "/icon-192x192.png",
+           "type": "image/png",
+           "sizes": "192x192"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+         },
+        {
+           "src": "/icon-32x32.png",
+           "type": "image/png",
+           "sizes": "32x32"
+        },
+        {
+           "src": "/icon-16x16.png",
+           "type": "image/png",
+           "sizes": "16x16"
+        }
+     ]
+ }
