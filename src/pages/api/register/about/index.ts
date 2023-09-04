@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if(user) {
     setCookie({ res }, '@uspparty', user.username, {
-      maxAge: 60 * 60 * 24 * 2,
+      maxAge: 60 * 60 * 24 * 14,
       path: '/'
     })
   }

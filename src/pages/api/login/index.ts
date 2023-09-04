@@ -26,7 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(403).json({message: `Senha inválida.`})
   } else {
     nookies.set({ res }, '@uspparty', user.username, {
-      maxAge: 60 * 60 * 24 * 2,
+      maxAge: 60 * 60 * 24 * 14,
       path: '/'
     })  
   }
