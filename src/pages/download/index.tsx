@@ -52,8 +52,8 @@ export default function Login() {
                 </button>
 
                 <div className="mt-8 flex flex-col gap-4">
+                    <SidebarItem title="Fazer login" url="login"/>
                     <SidebarItem title="Criar uma conta" url="register/user-info"/>
-                    <SidebarItem title="Download" url="download"/>
                 </div>
             </div>
 
@@ -64,7 +64,6 @@ export default function Login() {
                 <div className="flex gap-8 items-center">
                 <Link href='/' className="cursor-pointer md:hover:scale-110 md:hover:text-[#00B37E] duration-200">USParty</Link>
                     <div className="flex gap-8 max-md:hidden">
-                        <Link className="hover:text-[#2fd898] hover:duration-200 font-normal text-base" href='/download'>Download</Link>
                     </div>
                 </div>
                 <div className="font-normal text-base flex items-center gap-8 max-md:hidden">
@@ -78,41 +77,26 @@ export default function Login() {
                 </button>
             </div>
             <div className="max-w-[480px] mt-10">
-                <div>
-                    <div className="Img flex flex-col items-center pointer-events-none">
-                        <Image src={img} height={200} quality={80} priority alt=""/>
-                    </div>  
+                <h2 className="text-gray-100 text-3xl mt-3 font-bold font-poppins leading-[120%] text-center">Tutorial de <span className="text-[#00B37E]">download</span></h2>
+                
+                <h2 className="text-[#00B37E] text-2xl mt-4 font-bold font-poppins leading-[140%]">iOS e Android</h2>
+                <p className="mt-2 text-gray-200">
+                    <p className="font-bold">1. Primeiro passo</p> 
+                    Nas configurações de seu navegador, busque pelas opções "Instalar aplicativo", "Adicionar à tela de início" ou "Adicionar à tela inicial".
+                </p>
+                <p className="mt-2 text-gray-200">
+                    <p className="font-bold">2. Segundo passo</p> 
+                    Selecione a opção que aparece em seu dispositivo. Após o carregamento, procure pelo ícone em sua lista de aplicativos ou tela inicial.
+                </p>
 
-                    <h2 className="text-gray-100 text-4xl font-bold font-poppins leading-[140%] ">Login</h2>
-                    <p className="text-[#A9A9B2] mb-6">Insira suas credenciais de acesso.</p>
-                </div>
-
-                <Box as='form' className="flex flex-col gap-4" onSubmit={handleLogin} >
-                    <label className="flex flex-col gap-2">
-                        <p className="text-sm text-gray-100 flex items-center gap-2">Nome de usuário <User /></p>
-                        <TextInput prefix="usparty.com.br/" placeholder="seu-usuario" value={username} onChange={ev => setUsername(ev.target.value)}/>              
-                    </label>
-                    <label className="flex flex-col gap-2">
-                        <p className="text-sm text-gray-100 flex items-center gap-2">Senha {<Lock />}</p>
-                        <TextInput placeholder="••••••••" type="password" value={password} onChange={ev => setPassword(ev.target.value)}/>
-
-                        {error && (
-                        <p className="text-sm text-[#F75A68]">{error}</p>
-                        )}  
-                    </label>
-
-                    <Button type="submit" size={"sm"}>
-                        Conectar <ArrowRight />
-                    </Button>
-                </Box>
-
-                <p className="mt-4 text-gray-100">
-                    Não possui uma conta? <Link href={'/register/user-info'} className="font-bold text-[#00B37E] hover:text-[#2fd898] hover:duration-100">Cadastre-se</Link>!
+                <h2 className="text-[#00B37E] text-2xl mt-4 font-bold font-poppins leading-[140%]">Desktop</h2>
+                <p className="mt-2 text-gray-200"> 
+                    Na barra de endereços de seu navegador em seu computador, verifique a presença de um ícone "Instalar USParty". Em caso positivo, selecione a opção e aproveite o aplicativo.
                 </p>
             </div>
 
             <Head>
-                    <title>Faça login! | USParty</title>
+                    <title>Downlaod | USParty</title>
             </Head>
         </div>
     )

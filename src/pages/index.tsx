@@ -58,6 +58,7 @@ export default function ClaimUsername() {
             <div className="mt-8 flex flex-col gap-4">
               <SidebarItem title="Fazer login" url="login"/>
               <SidebarItem title="Criar uma conta" url="register/user-info"/>
+              <SidebarItem title="Download" url="download"/>
             </div>
           </div>
 
@@ -68,8 +69,7 @@ export default function ClaimUsername() {
         <div className="flex items-center gap-8">
           <Link href='/' className="cursor-pointer md:hover:scale-110 md:hover:text-[#00B37E] duration-200">USParty</Link>
           <div className="flex gap-8 max-md:hidden">
-            <Link className="hover:text-[#2fd898] hover:duration-200 font-normal text-base" href=''>Sobre</Link>
-            <Link className="hover:text-[#2fd898] hover:duration-200 font-normal text-base" href=''>Informações de contato</Link>
+            <Link className="hover:text-[#2fd898] hover:duration-200 font-normal text-base" href='/download'>Download</Link>
           </div>
         </div>
         <div className="font-normal text-base flex items-center gap-8 max-md:hidden">
@@ -93,9 +93,13 @@ export default function ClaimUsername() {
 
         <div className="Img md:hidden flex flex-col items-center pointer-events-none">
             <Image src={img} height={200} quality={80} priority alt=""/>
+
+            <p className="text-center mt-3 text-gray-300 font-poppins">
+              Os principais eventos da USP Ribeirão Preto em um só lugar_
+            </p>
         </div>  
 
-        <h2 className="text-gray-100 text-4xl font-bold font-poppins leading-[140%] mt-5">Registre-se</h2>
+        <h2 className="text-gray-100 text-4xl font-bold font-poppins leading-[140%] mt-2">Registre-se</h2>
 
         <Box as='form' className="flex flex-col gap-2 max-md:gap-4 md:flex-row mt-5" onSubmit={handleSubmit(handleClaimUsername)}>
           <TextInput size='sm' prefix="usparty.netlify.app/" placeholder="seu-usuario" {...register('username')} className="lowercase"/>
@@ -111,6 +115,10 @@ export default function ClaimUsername() {
 
         <p className="mt-4 text-gray-100">
           Já possui uma conta? Faça <Link href={'/login'} className="font-bold text-[#00B37E] hover:text-[#2fd898] hover:duration-100">login</Link>!
+        </p>
+
+        <p className="mt-2 text-gray-100 md:hidden">
+          Fazer <Link href={'/download'} className="font-bold text-[#00B37E]">download</Link>.
         </p>
       </div>
 
