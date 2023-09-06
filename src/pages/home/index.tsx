@@ -2,7 +2,7 @@ import Post, { PostProps } from "@/components/Post";
 import { useUserContext } from "@/context/UserContext";
 import { api } from "@/lib/axios";
 import { Button } from "@ignite-ui/react";
-import { Jelly, Pulsar } from "@uiball/loaders";
+import { Pulsar } from "@uiball/loaders";
 import { AxiosError } from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -84,14 +84,15 @@ export default function Home() {
                 </Button>
             </div>
 
-            <div className="md:mt-2 mt-10 flex flex-col gap-4">
+            <div className="md:mt-2 mt-8 flex flex-col gap-4">
                 {
                     isloading ? (
                         <div className="mx-auto">
                             <Pulsar size={30} color="#00B37E" />
                         </div>
                     ) : (
-                        posts.map(post => (
+                        posts.length !== 0 ? (
+                            posts.map(post => (
                             <Post   key={post.id}
                                     id={post.id}
                                     author={post.author}
@@ -108,8 +109,13 @@ export default function Home() {
                                     end_hour={post.end_hour}
                                     end_minute={post.end_minute}
                                     link={post.link}
-                            />
-                        ))
+                            />))
+                        ) : (
+                           <div className="text-[#7C7C8A] text-center">
+                                <p>Nenhum evento foi encontrado...</p>
+                                <p>Tente recarregar a página.</p>
+                           </div>
+                        )
                     )
                 }
             </div>
