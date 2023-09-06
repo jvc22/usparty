@@ -6,17 +6,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).end()
   }
 
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 2)
-
   const posts = await prisma.post.findMany({
     where: {
       date: {
-        gte: yesterday
+        gte: new Date()
       }
+    },
+    orderBy: {
+      date: 'asc'
     }
   })
 
-  return res.status(200).json(posts.sort((a, b) => a.date.getTime() - b.date.getTime()))
+  return res.status(200).json(posts)
 
 }

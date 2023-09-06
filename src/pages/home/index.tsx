@@ -2,6 +2,7 @@ import Post, { PostProps } from "@/components/Post";
 import { useUserContext } from "@/context/UserContext";
 import { api } from "@/lib/axios";
 import { Button } from "@ignite-ui/react";
+import { Jelly, Pulsar } from "@uiball/loaders";
 import { AxiosError } from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -10,9 +11,11 @@ import { Pen, SignOut } from "phosphor-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-    const [posts, setPosts] = useState<PostProps[]>([])
     const { userInfo, setUserInfo } = useUserContext()
     const router = useRouter()
+    
+    const [posts, setPosts] = useState<PostProps[]>([])
+    const [isloading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const cookies = parseCookies()
@@ -37,7 +40,7 @@ export default function Home() {
             try {
                 const res = await api.get('/post')
                 setPosts(res.data)
-                console.log(posts)
+                setIsLoading(false)
             } catch(err) {
                 if(err instanceof AxiosError && err?.response?.data?.message) {
                     console.error(err.response.data.message)
@@ -82,25 +85,33 @@ export default function Home() {
             </div>
 
             <div className="md:mt-2 mt-10 flex flex-col gap-4">
-                {posts.map(post => (
-                    <Post   key={post.id}
-                            id={post.id}
-                            author={post.author}
-                            title={post.title}
-                            about={post.about}
-                            description={post.description}
-                            place={post.place}
-                            created_at={post.created_at} 
-                            day={post.day}
-                            month={post.month}
-                            year={post.year}
-                            start_hour={post.start_hour} 
-                            start_minute={post.start_minute}
-                            end_hour={post.end_hour}
-                            end_minute={post.end_minute}
-                            link={post.link}
+                {
+                    isloading ? (
+                        <div className="mx-auto">
+                            <Pulsar size={30} color="#00B37E" />
+                        </div>
+                    ) : (
+                        posts.map(post => (
+                            <Post   key={post.id}
+                                    id={post.id}
+                                    author={post.author}
+                                    title={post.title}
+                                    about={post.about}
+                                    description={post.description}
+                                    place={post.place}
+                                    created_at={post.created_at} 
+                                    day={post.day}
+                                    month={post.month}
+                                    year={post.year}
+                                    start_hour={post.start_hour} 
+                                    start_minute={post.start_minute}
+                                    end_hour={post.end_hour}
+                                    end_minute={post.end_minute}
+                                    link={post.link}
                             />
-                ))}
+                        ))
+                    )
+                }
             </div>
 
             <Head>
