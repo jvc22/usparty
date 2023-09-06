@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).end()
   }
 
-  const {author,title, description, place, day, month, year, s_hour, s_minute, e_hour, e_minute, link} = req.body
+  const {author, title, description, place, day, month, year, s_hour, s_minute, e_hour, e_minute, link} = req.body
 
   const user = await prisma.user.findUnique({
     where: {
