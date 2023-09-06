@@ -49,9 +49,9 @@ export default function ClaimUsername() {
   }
 
   return (
-    <div className="w-[100vw] h-[100vh] flex flex-col items-center p-8 relative">
+    <div className="w-[100vw] h-[100vh] flex flex-col items-center p-8 relative no-select">
           <div className={`h-full w-[70%] p-8 bg-[#202024] fixed right-0 top-0 md:hidden ${openMenu ? 'transition translate-x-0 duration-200' : 'transition translate-x-[100%] duration-200'}`}>
-            <button onClick={() => {setOpenMenu(false)}}>
+            <button className="tap" onClick={() => {setOpenMenu(false)}}>
               <X className="text-gray-100 text-2xl focus:text-violet-400"/>
             </button>
 
@@ -67,7 +67,7 @@ export default function ClaimUsername() {
       
       <div className="w-full text-gray-100 font-bold font-poppins text-2xl flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href='/' className="cursor-pointer md:hover:scale-110 md:hover:text-[#00B37E] duration-200">USParty</Link>
+          <Link href='/' className="cursor-pointer hover:scale-110 hover:text-[#00B37E] duration-200">USParty</Link>
           <div className="flex gap-8 max-md:hidden">
             <Link className="hover:text-[#2fd898] hover:duration-200 font-normal text-base" href='/download'>Download</Link>
           </div>
@@ -78,7 +78,7 @@ export default function ClaimUsername() {
             <span className="font-poppins">Criar uma conta</span>
           </Button>
         </div>
-        <button className="md:hidden" onClick={() => {setOpenMenu(true)}}>
+        <button className="tap md:hidden" onClick={() => {setOpenMenu(true)}}>
           <List />
         </button>
       </div>
@@ -114,11 +114,11 @@ export default function ClaimUsername() {
         </p>
 
         <p className="mt-4 text-gray-100">
-          Já possui uma conta? Faça <Link href={'/login'} className="font-bold text-[#00B37E] hover:text-[#2fd898] hover:duration-100">login</Link>!
+          Já possui uma conta? Faça <Link href={'/login'} className="font-bold text-[#00B37E] tap max-md:hover:brightness-150 hover:duration-100">login</Link>!
         </p>
 
         <p className="mt-2 text-gray-100 md:hidden">
-          Fazer <Link href={'/download'} className="font-bold text-[#00B37E]">download</Link>.
+          Fazer <Link href={'/download'} className="tap hover:brightness-150 font-bold text-[#00B37E]">download</Link>.
         </p>
       </div>
 

@@ -53,7 +53,7 @@ export default function About() {
       }
 
     return (
-        <div className="max-w-[572px] mt-20 mx-auto mb-4 py-0 px-4">
+        <div className="max-w-[572px] mt-20 mx-auto mb-4 py-0 px-4 no-select">
             <div className="py-0 px-6">
                 <h2 className="text-gray-100 text-[24px] font-bold leading-[180%]">Fale sobre você!</h2>
                 <p className="text-[#A9A9B2] mb-6">Esta será a sua "bio". As informações inseridas ficarão visíveis para outros usuários!</p>

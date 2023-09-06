@@ -91,7 +91,7 @@ export default function PostForm() {
     }        
 
     return (
-        <div className="md:max-w-[500px] w-[100vw] mx-auto p-8 flex flex-col justify-center">
+        <div className="md:max-w-[500px] w-[100vw] mx-auto p-8 flex flex-col justify-center no-select">
             <div>
                 <p className="text-2xl text-center text-gray-100 font-bold md:hover:scale-110 md:hover:text-[#00B37E] duration-200 font-poppins">USParty</p>
             </div>

@@ -71,7 +71,7 @@ export default function Post(props: PostProps) {
                     <div className="flex items-center gap-2">
                         {
                             props.author === userInfo.username && (
-                                <Trash className="text-red-400 cursor-pointer hover:text-red-300" onClick={deletePost}/>
+                                <Trash className="tap text-red-400 cursor-pointer hover:text-red-300" onClick={deletePost}/>
                             )
                         }
                         <span className="text-[#7C7C8A] text-xs">{formattedDate}</span>

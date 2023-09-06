@@ -61,7 +61,7 @@ export default function Register() {
     }
     
     return (
-        <div className="max-w-[572px] mt-5 md:mt-20 mx-auto mb-5 py-0 px-4">
+        <div className="max-w-[572px] mt-5 md:mt-20 mx-auto mb-5 py-0 px-4 no-select">
             <div className="py-0 px-6">
                 <h2 className="text-gray-100 text-[24px] font-bold leading-[180%]">Bem-vindo ao USParty!</h2>
                 <p className="text-[#A9A9B2] mb-6">Precisamos de algumas informações para criar seu perfil.</p>

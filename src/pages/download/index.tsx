@@ -45,9 +45,9 @@ export default function Login() {
     }
 
     return (
-        <div className="w-[100vw] h-[90vh] md:h-[100vh] flex flex-col items-center p-8">
+        <div className="w-[100vw] h-[90vh] md:h-[100vh] flex flex-col items-center p-8 no-select">
             <div className={`h-full w-[70%] p-8 bg-[#202024] fixed right-0 top-0 md:hidden ${openMenu ? 'transition translate-x-0 duration-200' : 'transition translate-x-[100%] duration-200'}`}>
-                <button onClick={() => {setOpenMenu(false)}}>
+                <button onClick={() => {setOpenMenu(false)}} className="tap">
                     <X className="icon text-gray-100 text-2xl md:hover:text-violet-400 duration-200"/>
                 </button>
 
@@ -72,7 +72,7 @@ export default function Login() {
                         <span className="font-poppins">Criar uma conta</span>
                     </Button>
                 </div>
-                <button className="md:hidden" onClick={() => {setOpenMenu(true)}}>
+                <button className="md:hidden tap" onClick={() => {setOpenMenu(true)}}>
                     <List />
                 </button>
             </div>
