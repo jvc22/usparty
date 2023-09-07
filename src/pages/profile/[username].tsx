@@ -90,7 +90,7 @@ export default function Home() {
             </div>
 
             <div className="md:hidden">
-                <Button onClick={() => {router.back()}} size={"sm"} style={{width: '100%'}}>
+                <Button onClick={() => {router.replace('/home')}} size={"sm"} style={{width: '100%'}}>
                     <ArrowLeft />
                     Retornar à página inicial
                 </Button>
@@ -99,7 +99,7 @@ export default function Home() {
             <div className="max-md:mt-4 flex flex-col gap-3">
                 {
                     isloading ? (
-                        <div className="mx-auto">
+                        <div className="mx-auto mt-2">
                             <Pulsar size={30} color="#00B37E" />
                         </div>
                     ) : (
