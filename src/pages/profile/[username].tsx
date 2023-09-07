@@ -96,7 +96,7 @@ export default function Home() {
                 </Button>
             </div>
 
-            <div className="max-md:mt-6 flex flex-col gap-4">
+            <div className="max-md:mt-4 flex flex-col gap-3">
                 {
                     isloading ? (
                         <div className="mx-auto">
