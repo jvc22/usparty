@@ -62,7 +62,7 @@ export default function Home() {
                         className="flex items-center gap-1 hover:text-[#00B37E] cursor-pointer mr-1">
                             {<User className="text-2xl"/>}
                     </p>
-                    <SignOut className="tap text-2xl hover:text-red-400 md:hidden" onClick={handleLogout}/>
+                    <SignOut className="tap text-2xl hover:text-red-400 md:hidden cursor-pointer" onClick={handleLogout}/>
                     <div className="max-md:hidden">
                         <Button size={"sm"} onClick={() => {router.push('/post-form')}}>
                             Criar evento

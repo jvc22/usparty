@@ -73,7 +73,7 @@ export default function Home() {
             <div className="w-full text-gray-100 font-bold text-2xl flex items-center justify-between mb-4">
                 <p className="md:hover:scale-110 md:hover:text-[#00B37E] duration-200 font-poppins">USParty</p>
                 <div className="font-normal text-base flex items-center gap-2">
-                    <SignOut className="tap text-2xl hover:text-red-400 md:hidden" onClick={handleLogout}/>
+                    <SignOut className="tap text-2xl hover:text-red-400 md:hidden cursor-pointer" onClick={handleLogout}/>
                     <div className="max-md:hidden">
                         <Button size={"sm"} onClick={() => {router.back()}}>
                             <ArrowLeft />
