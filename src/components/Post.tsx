@@ -65,7 +65,7 @@ export default function Post(props: PostProps) {
             <Box>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <span className="text-[#00B37E] font-bold">@{props.author}</span>
+                        <p className="text-[#00B37E] font-bold hover:text-[#2fd898] cursor-pointer" onClick={() => (router.push(`/profile/${props.author}`))}>@{props.author}</p>
                         <span className="text-[#7C7C8A] text-sm">{props.about.length > 13 ? `${props.about.slice(0, 13)}...` : props.about}</span>
                     </div>
                     <div className="flex items-center gap-2">

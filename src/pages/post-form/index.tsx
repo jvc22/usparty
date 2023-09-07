@@ -5,7 +5,7 @@ import { Box, Button, TextArea, TextInput } from "@ignite-ui/react";
 import { AxiosError } from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Plus } from "phosphor-react";
+import { ArrowLeft, Plus } from "phosphor-react";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -96,7 +96,7 @@ export default function PostForm() {
                 <p className="text-2xl text-center text-gray-100 font-bold md:hover:scale-110 md:hover:text-[#00B37E] duration-200 font-poppins">USParty</p>
             </div>
 
-            <div className="mt-4 w-full">
+            <div className="mt-3 w-full">
                 <Box as='form' onSubmit={handleSubmit(handlePost)} className="mt-3 flex flex-col gap-4">
                     <label className="flex flex-col gap-2">
                         <p className="text-sm text-gray-100">Título do evento</p>
@@ -190,10 +190,15 @@ export default function PostForm() {
                         )}
                     </label>
 
-                    <Button type="submit" disabled={isSubmitting}>
-                        Publicar
-                        <Plus />
-                    </Button>
+                    <div className="flex justify-between gap-3">
+                        <Button disabled={isSubmitting} onClick={() => {router.back()}} size={"sm"} style={{width: '100%'}} variant={'secondary'}>
+                            Cancelar
+                        </Button>
+                        <Button type="submit" size={'sm'} disabled={isSubmitting} style={{width: '100%'}}>
+                            Publicar
+                            <Plus />
+                        </Button>
+                    </div>
                 </Box>
             </div>
 

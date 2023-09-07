@@ -5,9 +5,10 @@ import { Button } from "@ignite-ui/react";
 import { Pulsar } from "@uiball/loaders";
 import { AxiosError } from "axios";
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { destroyCookie, parseCookies } from "nookies";
-import { Pen, SignOut } from "phosphor-react";
+import { Pen, SignOut, User } from "phosphor-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -57,9 +58,9 @@ export default function Home() {
         <div className="md:max-w-[800px] w-[100vw] mx-auto p-8 flex flex-col justify-center no-select">
             <div className="w-full text-gray-100 font-bold text-2xl flex items-center justify-between mb-4">
                 <p className="md:hover:scale-110 md:hover:text-[#00B37E] duration-200 font-poppins">USParty</p>
-                <div className="font-normal text-base flex items-center gap-3">
-                    <p>Olá, <span className="text-[#00B37E] font-bold">{userInfo.username}</span></p>
-                    <SignOut className="tap text-2xl text-[#00B37E] hover:brightness-150 md:hidden" onClick={handleLogout}/>
+                <div className="font-normal text-base flex items-center gap-5">
+                    <p onClick={() => (router.push(`/profile/${userInfo.username}`))} className="flex items-center gap-1 hover:text-[#2fd898] cursor-pointer">{<User />} <span className="text-[#00B37E] font-bold">{userInfo.username}</span></p>
+                    <SignOut className="tap text-2xl text-red-400 hover:brightness-150 md:hidden" onClick={handleLogout}/>
                     <div className="max-md:hidden">
                         <Button size={"sm"} onClick={() => {router.push('/post-form')}}>
                             Criar evento
@@ -82,7 +83,7 @@ export default function Home() {
                 </Button>
             </div>
 
-            <div className="md:mt-2 mt-8 flex flex-col gap-4">
+            <div className="mt-6 flex flex-col gap-4">
                 {
                     isloading ? (
                         <div className="mx-auto">
