@@ -6,10 +6,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).end()
   }
 
+  const date = new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' })
+  const tomorrow = new Date(date)
+  tomorrow.setDate(tomorrow.getDate() - 1)
+
   const posts = await prisma.post.findMany({
     where: {
       date: {
-        gte: new Date()
+        gte: tomorrow
       }
     },
     orderBy: {
