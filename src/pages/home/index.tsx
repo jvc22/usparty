@@ -7,7 +7,7 @@ import { AxiosError } from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { destroyCookie, parseCookies } from "nookies";
-import { Pen, SignOut, User, UserCircle, UserSquare } from "phosphor-react";
+import { House, HouseLine, Pen, SignOut, User } from "phosphor-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {

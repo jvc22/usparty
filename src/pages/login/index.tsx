@@ -45,7 +45,7 @@ export default function Login() {
     }
 
     return (
-        <div className="w-[100vw] h-[90vh] md:h-[100vh] flex flex-col items-center p-8 no-select">
+        <div className="w-[100vw] h-[90vh] md:h-[100vh] flex flex-col items-center p-6 no-select">
             <div className={`h-full w-[70%] p-8 bg-[#202024] fixed right-0 top-0 md:hidden ${openMenu ? 'transition translate-x-0 duration-200' : 'transition translate-x-[100%] duration-200'}`}>
                 <button onClick={() => {setOpenMenu(false)}} className="tap">
                     <X className="icon text-gray-100 text-2xl md:hover:text-violet-400 duration-200"/>
@@ -57,7 +57,7 @@ export default function Login() {
                 </div>
             </div>
 
-            <div className="w-full h-[96px] z-[-1] absolute top-0 border-b-[1px] border-[#323238]">
+            <div className="w-full h-[80px] z-[-1] absolute top-0 border-b-[1px] border-[#323238]">
             </div>
             
             <div className="w-full text-gray-100 font-bold font-poppins text-2xl flex items-center justify-between">
