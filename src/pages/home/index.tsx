@@ -1,13 +1,13 @@
 import Post, { PostProps } from "@/components/Post";
 import { useUserContext } from "@/context/UserContext";
 import { api } from "@/lib/axios";
-import { Button } from "@ignite-ui/react";
+import { Box, Button, TextInput } from "@ignite-ui/react";
 import { Pulsar } from "@uiball/loaders";
 import { AxiosError } from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { destroyCookie, parseCookies } from "nookies";
-import { House, HouseLine, Pen, SignOut, User } from "phosphor-react";
+import { MagnifyingGlass, Pen, SignOut, User, X } from "phosphor-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -16,6 +16,12 @@ export default function Home() {
     
     const [posts, setPosts] = useState<PostProps[]>([])
     const [isloading, setIsLoading] = useState(true)
+
+    const [modal, setModal] = useState(false)
+
+    const [user, setUser] = useState('')
+    const [error, setError] = useState('')
+    const [isSearching, setIsSearching] = useState(false)
 
     useEffect(() => {
         const cookies = parseCookies()
@@ -33,6 +39,35 @@ export default function Home() {
     function handleLogout() {
         destroyCookie(null, '@uspparty')
         router.replace('/')
+    }
+
+    function handleModal() {
+        setModal(!modal)
+    }
+
+    async function findUser(ev: any) {
+        ev.preventDefault()
+
+        try {
+            setIsSearching(true)
+
+            const res = await api.post('/user', {
+                username: user
+            })
+           
+            if(res.status === 200) {
+                router.push(`/profile/${user}`)
+            }
+
+        } catch(err) {
+            if(err instanceof AxiosError && err?.response?.data?.message) {
+                console.log(err.response.data)
+                setIsSearching(false)
+                setError(err.response.data.message)
+                return
+            }
+            console.error(err)
+        }
     }
 
     useEffect(() => {
@@ -58,6 +93,7 @@ export default function Home() {
             <div className="w-full text-gray-100 font-bold text-2xl flex items-center justify-between mb-4">
                 <p className="md:hover:scale-110 md:hover:text-[#00B37E] duration-200 font-poppins">USParty</p>
                 <div className="font-normal text-base flex items-center gap-2">
+                    <MagnifyingGlass onClick={handleModal} className="tap text-2xl hover:text-[#00B37E] cursor-pointer mr-1"/>
                     <p  onClick={() => (router.push(`/profile/${userInfo.username}`))} 
                         className="flex items-center gap-1 hover:text-[#00B37E] cursor-pointer mr-1">
                             {<User className="text-2xl"/>}
@@ -120,6 +156,29 @@ export default function Home() {
                     )
                 }
             </div>
+
+            {
+                modal && (
+                    <div className="fixed top-0 bottom-0 left-0 right-0 
+                        w-[100vw] h-[100vh] bg-gray-900/50 flex items-center justify-center gap-1">
+                        <Box as='form' className="flex flex-col gap-2 w-[80vw]">
+                            <label className="flex flex-col gap-2">
+                                <div className="flex items-center justify-between text-gray-100">
+                                    <p className="text-sm flex items-center gap-2">Digite o nome do perfil</p>
+                                    <X className="text-lg tap hover:text-[#00B37E] cursor-pointer" onClick={handleModal}/>
+                                </div>
+                                <TextInput prefix="profile/" value={user} placeholder="nome-de-usuario" onChange={ev => setUser(ev.target.value)}/>              
+                            </label>
+                            <Button size={'sm'} variant={isSearching ? 'tertiary' : 'primary'} type="submit" onClick={findUser}>
+                                Buscar usuário
+                            </Button>
+                            {error !== '' ? (
+                                <p className="text-sm text-[#F75A68]">{error}</p>
+                            ) : ''}
+                        </Box>
+                    </div>
+                )
+            }
 
             <Head>
                 <title>Página inicial | USParty</title>

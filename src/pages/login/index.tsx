@@ -90,7 +90,7 @@ export default function Login() {
                 <Box as='form' className="flex flex-col gap-4" onSubmit={handleLogin} >
                     <label className="flex flex-col gap-2">
                         <p className="text-sm text-gray-100 flex items-center gap-2">Nome de usuário <User /></p>
-                        <TextInput prefix="usparty.com.br/" placeholder="seu-usuario" value={username} onChange={ev => setUsername(ev.target.value)}/>              
+                        <TextInput prefix="usparty.netlify.app/" placeholder="seu-usuario" value={username} onChange={ev => setUsername(ev.target.value)}/>              
                     </label>
                     <label className="flex flex-col gap-2">
                         <p className="text-sm text-gray-100 flex items-center gap-2">Senha {<Lock />}</p>
