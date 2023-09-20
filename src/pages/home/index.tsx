@@ -161,7 +161,7 @@ export default function Home() {
                 modal && (
                     <div className="fixed top-0 bottom-0 left-0 right-0 
                         w-[100vw] h-[100vh] bg-gray-900/50 flex items-center justify-center gap-1">
-                        <Box as='form' className="flex flex-col gap-2 w-[80vw] max-w-[400px]">
+                        <Box as='form' className="flex flex-col gap-2 w-[80vw] max-w-[400px] mb-32">
                             <label className="flex flex-col gap-2">
                                 <div className="flex items-center justify-between text-gray-100">
                                     <p className="text-sm flex items-center gap-2">Digite o nome do perfil</p>
@@ -182,7 +182,7 @@ export default function Home() {
                             }
                             {
                                 error !== '' ? (
-                                    <p className="text-sm text-[#F75A68]">{error}</p>
+                                    <p className="text-sm mt-1 text-[#F75A68]">{error}</p>
                                 ) : ''
                             }
                         </Box>
