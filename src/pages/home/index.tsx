@@ -2,7 +2,7 @@ import Post, { PostProps } from "@/components/Post";
 import { useUserContext } from "@/context/UserContext";
 import { api } from "@/lib/axios";
 import { Box, Button, TextInput } from "@ignite-ui/react";
-import { Pulsar } from "@uiball/loaders";
+import { DotWave, Pulsar } from "@uiball/loaders";
 import { AxiosError } from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -161,7 +161,7 @@ export default function Home() {
                 modal && (
                     <div className="fixed top-0 bottom-0 left-0 right-0 
                         w-[100vw] h-[100vh] bg-gray-900/50 flex items-center justify-center gap-1">
-                        <Box as='form' className="flex flex-col gap-2 w-[80vw]">
+                        <Box as='form' className="flex flex-col gap-2 w-[80vw] max-w-[400px]">
                             <label className="flex flex-col gap-2">
                                 <div className="flex items-center justify-between text-gray-100">
                                     <p className="text-sm flex items-center gap-2">Digite o nome do perfil</p>
@@ -169,12 +169,22 @@ export default function Home() {
                                 </div>
                                 <TextInput prefix="profile/" value={user} placeholder="nome-de-usuario" onChange={ev => setUser(ev.target.value)}/>              
                             </label>
-                            <Button size={'sm'} variant={isSearching ? 'tertiary' : 'primary'} type="submit" onClick={findUser}>
-                                Buscar usuário
-                            </Button>
-                            {error !== '' ? (
-                                <p className="text-sm text-[#F75A68]">{error}</p>
-                            ) : ''}
+                            {
+                                isSearching ? (
+                                    <div className="mx-auto mt-4">
+                                        <DotWave size={30} color="#00B37E"/>
+                                    </div>
+                                ) : (
+                                    <Button size={'sm'} type="submit" onClick={findUser}>
+                                        Buscar usuário
+                                    </Button>
+                                )
+                            }
+                            {
+                                error !== '' ? (
+                                    <p className="text-sm text-[#F75A68]">{error}</p>
+                                ) : ''
+                            }
                         </Box>
                     </div>
                 )
