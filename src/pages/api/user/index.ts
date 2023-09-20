@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const { username } = req.body
 
   if(!username) {
-    return res.status(404).json({message: 'undefined'})
+    return res.status(404).json({message: 'Usuário não encontrado.'})
   }
 
   const user = await prisma.user.findUnique({
