@@ -136,7 +136,7 @@ export default function Home() {
                                         <p className="text-[#00B37E] font-bold">{router.query.username} <span className="text-gray-100 font-normal">&nbsp;|&nbsp; {profileDetails?.name}</span></p>
                                         <p className="text-zinc-400 text-[14px]">{profileDetails?.about}</p>
                             </div>
-                            <div className="text-[#7C7C8A] text-center">
+                            <div className="text-[#7C7C8A] text-center text-sm">
                                 <p>Nenhum evento foi encontrado...</p>
                                 <p>Tente recarregar a página.</p>
                             </div>
