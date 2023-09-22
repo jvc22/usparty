@@ -148,7 +148,7 @@ export default function Home() {
                                     link={post.link}
                             />))
                         ) : (
-                           <div className="text-[#7C7C8A] text-center">
+                           <div className="text-[#7C7C8A] text-center text-sm">
                                 <p>Nenhum evento foi encontrado...</p>
                                 <p>Tente recarregar a página.</p>
                            </div>
